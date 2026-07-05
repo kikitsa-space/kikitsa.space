@@ -101,6 +101,9 @@ nav a:hover{
     margin:35px auto;
     max-width:650px;
     font-size:20px;
+
+   .hero p{
+    color:#fff;
 }
 
 .button{
