@@ -1,89 +1,150 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* ==========================
+   KIKITSA
+   script.js
+========================== */
 
-    const languageButton = document.getElementById("language-switch");
-
-    // Check if the visitor has already selected a language
-    let currentLanguage = localStorage.getItem("kikitsa-language") || "el";
-
-    function changeLanguage(language) {
-
-        currentLanguage = language;
-
-        // Change HTML language
-        document.documentElement.lang = language;
-
-        // Change all text elements
-        document.querySelectorAll("[data-el][data-en]").forEach(element => {
-
-            element.textContent =
-                language === "en"
-                    ? element.getAttribute("data-en")
-                    : element.getAttribute("data-el");
-
-        });
-
-
-        // Change image ALT text
-        document.querySelectorAll("[data-alt-el][data-alt-en]").forEach(image => {
-
-            image.alt =
-                language === "en"
-                    ? image.getAttribute("data-alt-en")
-                    : image.getAttribute("data-alt-el");
-
-        });
-
-
-        // Change page title
-        document.title =
-            language === "en"
-                ? "kikitsa | Creative Space"
-                : "κικίτσα | Creative Space";
-
-
-        // Change meta description
-        const metaDescription =
-            document.getElementById("meta-description");
-
-        if (metaDescription) {
-
-            metaDescription.setAttribute(
-                "content",
-                language === "en"
-                    ? "Kikitsa is a contemporary art space for exhibitions, workshops, photo shoots, podcasts and cultural events in Athens."
-                    : "Η κικίτσα είναι ένας σύγχρονος χώρος τέχνης για εκθέσεις, εργαστήρια, φωτογραφίσεις, podcast και πολιτιστικές εκδηλώσεις στην Αθήνα."
-            );
-
+// Fade-in animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
         }
+    });
+}, {
+    threshold: 0.15
+});
+
+document
+    .querySelectorAll(".feature, .card, .gallery img")
+    .forEach((el) => observer.observe(el));
 
 
-        // Change language button
-        languageButton.textContent =
-            language === "el"
-                ? "EN"
-                : "GR";
+// Sticky header effect
+const header = document.querySelector("header");
 
+window.addEventListener("scroll", () => {
 
-        // Save language preference
-        localStorage.setItem("kikitsa-language", language);
-
+    if (window.scrollY > 40) {
+        header.style.padding = "15px 8%";
+        header.style.boxShadow = "0 8px 25px rgba(0,0,0,.08)";
+    } else {
+        header.style.padding = "22px 8%";
+        header.style.boxShadow = "none";
     }
 
+});
 
-    // Language switch
-    languageButton.addEventListener("click", () => {
 
-        const newLanguage =
-            currentLanguage === "el"
-                ? "en"
-                : "el";
+// Active navigation link
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
 
-        changeLanguage(newLanguage);
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const top = section.offsetTop - 120;
+        const height = section.clientHeight;
+
+        if (window.scrollY >= top) {
+            current = section.getAttribute("id");
+        }
 
     });
 
+    navLinks.forEach(link => {
 
-    // Load saved/default language
-    changeLanguage(currentLanguage);
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+
+    });
 
 });
+
+
+// Gallery Lightbox
+const images = document.querySelectorAll(".gallery img");
+
+const lightbox = document.createElement("div");
+lightbox.id = "lightbox";
+
+lightbox.innerHTML = `
+    <span id="close-lightbox">&times;</span>
+    <img id="lightbox-image">
+`;
+
+document.body.appendChild(lightbox);
+
+const lightboxImage = document.getElementById("lightbox-image");
+const closeLightbox = document.getElementById("close-lightbox");
+
+images.forEach(image => {
+
+    image.addEventListener("click", () => {
+
+        lightbox.style.display = "flex";
+        lightboxImage.src = image.src;
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+closeLightbox.addEventListener("click", () => {
+
+    lightbox.style.display = "none";
+    document.body.style.overflow = "auto";
+
+});
+
+lightbox.addEventListener("click", (e) => {
+
+    if (e.target === lightbox) {
+
+        lightbox.style.display = "none";
+        document.body.style.overflow = "auto";
+
+    }
+
+});
+
+
+// Escape key closes lightbox
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+
+        lightbox.style.display = "none";
+        document.body.style.overflow = "auto";
+
+    }
+
+});
+
+
+// Smooth button hover
+document.querySelectorAll(".button").forEach(button => {
+
+    button.addEventListener("mouseenter", () => {
+
+        button.style.transform = "translateY(-3px)";
+
+    });
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.transform = "translateY(0)";
+
+    });
+
+});
+
+
+// Welcome message
+console.log(" website loaded successfully.");
