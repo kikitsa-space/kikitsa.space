@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>κικίτσα | Creative Space </title>
+    <title>κικίτσα | Creative Space</title>
 
-    <meta name="description"
-        content="Η κικίτσα είναι ένας σύγχρονος χώρος τέχνης για εκθέσεις, εργαστήρια, φωτογραφίσεις,podcast και πολιτιστικές εκδηλώσεις στην Αθήνα.">
+    <meta id="meta-description"
+        name="description"
+        content="Η κικίτσα είναι ένας σύγχρονος χώρος τέχνης για εκθέσεις, εργαστήρια, φωτογραφίσεις, podcast και πολιτιστικές εκδηλώσεις στην Αθήνα.">
 
     <link rel="stylesheet" href="style.css">
 
@@ -21,291 +22,416 @@
 
 <header>
 
-<div class="logo">
-κικίτσα
-</div>
+    <div class="logo">
+        κικίτσα
+    </div>
 
-<nav>
+    <nav>
 
-<a href="#home">Αρχική</a>
-<a href="#about">Σχετικά</a>
-<a href="#space">Ο Χώρος</a>
-<a href="#gallery">Φωτογραφίες</a>
-<a href="#contact">Επικοινωνία</a>
+        <a href="#home" data-el="Αρχική" data-en="Home">Αρχική</a>
 
-</nav>
+        <a href="#about" data-el="Σχετικά" data-en="About">Σχετικά</a>
+
+        <a href="#space" data-el="Ο Χώρος" data-en="The Space">Ο Χώρος</a>
+
+        <a href="#gallery" data-el="Φωτογραφίες" data-en="Gallery">Φωτογραφίες</a>
+
+        <a href="#contact" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+
+        <button id="language-switch" class="language-switch" type="button">
+            EN
+        </button>
+
+    </nav>
 
 </header>
 
 
+<!-- HERO -->
+
 <section id="home" class="hero">
 
-<div class="overlay"></div>
+    <div class="overlay"></div>
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<h1>κικίτσα</h1>
+        <h1>κικίτσα</h1>
 
-<h2>Creative Space</h2>
+        <h2>Creative Space</h2>
 
-<p>
+        <p
+            data-el="Ένας σύγχρονος χώρος για εκθέσεις, εργαστήρια, performances, παρουσιάσεις, φωτογραφίσεις, podcast και πολιτιστικές δράσεις."
+            data-en="A contemporary space for exhibitions, workshops, performances, presentations, photo shoots, podcasts and cultural events."
+        >
+            Ένας σύγχρονος χώρος για
+            εκθέσεις,
+            εργαστήρια,
+            performances,
+            παρουσιάσεις,
+            φωτογραφίσεις,
+            podcast
+            και πολιτιστικές δράσεις.
+        </p>
 
-Ένας σύγχρονος χώρος για
-εκθέσεις,
-εργαστήρια,
-performances,
-παρουσιάσεις,
-φωτογραφίσεις,
-podcast    
-και πολιτιστικές δράσεις.
+        <a href="#contact"
+           class="button"
+           data-el="Κράτηση Χώρου"
+           data-en="Book the Space">
+            Κράτηση Χώρου
+        </a>
 
-</p>
-
-<a href="#contact" class="button">
-
-Κράτηση Χώρου
-
-</a>
-
-</div>
+    </div>
 
 </section>
 
+
+<!-- ABOUT -->
 
 <section id="about">
 
-<div class="container">
+    <div class="container">
 
-<div class="text">
+        <div class="text">
 
-<h2>
+            <h2
+                data-el="Ένας χώρος για δημιουργία, έμπνευση και συνεργασία."
+                data-en="A space for creativity, inspiration and collaboration."
+            >
+                Ένας χώρος
+                για δημιουργία,
+                έμπνευση
+                και συνεργασία.
+            </h2>
 
-Ένας χώρος
-για δημιουργία,
-έμπνευση
-και συνεργασία.
+            <p
+                data-el="Η κικίτσα είναι ένας ευέλικτος χώρος τέχνης σχεδιασμένος για να φιλοξενεί εκθέσεις, εργαστήρια, συναντήσεις δημιουργών, παρουσιάσεις βιβλίων, performances, podcast και φωτογραφίσεις."
+                data-en="Kikitsa is a versatile art space designed to host exhibitions, workshops, creative gatherings, book presentations, performances, podcasts and photo shoots."
+            >
+                Η κικίτσα είναι ένας ευέλικτος χώρος τέχνης
+                σχεδιασμένος για να φιλοξενεί εκθέσεις,
+                εργαστήρια,
+                συναντήσεις δημιουργών,
+                παρουσιάσεις βιβλίων,
+                performances,
+                podcast
+                και φωτογραφίσεις.
+            </p>
 
-</h2>
+            <p
+                data-el="Ο μεγάλος ενιαίος χώρος, ο φυσικός φωτισμός και η ιδιαίτερη αρχιτεκτονική δημιουργούν ένα περιβάλλον που προσαρμόζεται στις ανάγκες κάθε δημιουργικής ιδέας."
+                data-en="The large open-plan space, natural light and distinctive architecture create an environment that adapts to the needs of every creative idea."
+            >
+                Ο μεγάλος ενιαίος χώρος,
+                ο φυσικός φωτισμός
+                και η ιδιαίτερη αρχιτεκτονική
+                δημιουργούν ένα περιβάλλον
+                που προσαρμόζεται στις ανάγκες
+                κάθε δημιουργικής ιδέας.
+            </p>
 
-<p>
+        </div>
 
-Η κικίτσα είναι ένας ευέλικτος χώρος τέχνης
-σχεδιασμένος για να φιλοξενεί εκθέσεις,
-εργαστήρια,
-συναντήσεις δημιουργών,
-παρουσιάσεις βιβλίων,
-performances,
-podcast    
-και φωτογραφίσεις.
 
-</p>
+        <div class="features">
 
-<p>
+            <div class="feature">
 
-Ο μεγάλος ενιαίος χώρος,
-ο φυσικός φωτισμός
-και η ιδιαίτερη αρχιτεκτονική
-δημιουργούν ένα περιβάλλον
-που προσαρμόζεται στις ανάγκες
-κάθε δημιουργικής ιδέας.
+                <h3
+                    data-el="Φυσικό Φως"
+                    data-en="Natural Light"
+                >
+                    Φυσικό Φως
+                </h3>
 
-</p>
+                <p
+                    data-el="Μεγάλα ανοίγματα που φωτίζουν φυσικά τον χώρο."
+                    data-en="Large openings that naturally illuminate the space."
+                >
+                    Μεγάλα ανοίγματα που φωτίζουν φυσικά τον χώρο.
+                </p>
 
-</div>
+            </div>
 
-<div class="features">
 
-<div class="feature">
+            <div class="feature">
 
-<h3>Φυσικό Φως</h3>
+                <h3
+                    data-el="Ανοιχτή Διάταξη"
+                    data-en="Open Layout"
+                >
+                    Ανοιχτή Διάταξη
+                </h3>
 
-<p>Μεγάλα ανοίγματα που φωτίζουν φυσικά τον χώρο.</p>
+                <p
+                    data-el="Ευέλικτος χώρος για κάθε είδους εκδήλωση."
+                    data-en="A flexible space for every type of event."
+                >
+                    Ευέλικτος χώρος για κάθε είδους εκδήλωση.
+                </p>
 
-</div>
+            </div>
 
-<div class="feature">
 
-<h3>Ανοιχτή Διάταξη</h3>
+            <div class="feature">
 
-<p>Ευέλικτος χώρος για κάθε είδους εκδήλωση.</p>
+                <h3
+                    data-el="Πατάρι"
+                    data-en="Mezzanine"
+                >
+                    Πατάρι
+                </h3>
 
-</div>
+                <p
+                    data-el="Επιπλέον επίπεδο για χρήση ή έκθεση."
+                    data-en="An additional level for use or display."
+                >
+                    Επιπλέον επίπεδο για χρήση ή έκθεση.
+                </p>
 
-<div class="feature">
+            </div>
 
-<h3>Πατάρι</h3>
 
-<p>Επιπλέον επίπεδο για χρήση ή έκθεση.</p>
+            <div class="feature">
 
-</div>
+                <h3
+                    data-el="Πολλαπλές Χρήσεις"
+                    data-en="Multiple Uses"
+                >
+                    Πολλαπλές Χρήσεις
+                </h3>
 
-<div class="feature">
+                <p
+                    data-el="Εκθέσεις, workshops, podcast, παρουσιάσεις, pop-up events."
+                    data-en="Exhibitions, workshops, podcasts, presentations and pop-up events."
+                >
+                    Εκθέσεις, workshops, podcast, παρουσιάσεις, pop-up events.
+                </p>
 
-<h3>Πολλαπλές Χρήσεις</h3>
+            </div>
 
-<p>Εκθέσεις, workshops,podcast , παρουσιάσεις, pop-up events.</p>
+        </div>
 
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- SPACE -->
 
 <section id="space">
 
-<div class="container">
+    <div class="container">
 
-<h2>Ο Χώρος</h2>
+        <h2
+            data-el="Ο Χώρος"
+            data-en="The Space"
+        >
+            Ο Χώρος
+        </h2>
 
-<div class="cards">
 
-<div class="card">
+        <div class="cards">
 
-<h3>Διπλό Ύψος</h3>
+            <div class="card">
 
-<p>
+                <h3
+                    data-el="Διπλό Ύψος"
+                    data-en="Double Height"
+                >
+                    Διπλό Ύψος
+                </h3>
 
-Εντυπωσιακός ανοιχτός χώρος
-με μεγάλο ύψος
-και φυσικό φωτισμό.
+                <p
+                    data-el="Εντυπωσιακός ανοιχτός χώρος με μεγάλο ύψος και φυσικό φωτισμό."
+                    data-en="An impressive open space with generous height and natural light."
+                >
+                    Εντυπωσιακός ανοιχτός χώρος
+                    με μεγάλο ύψος
+                    και φυσικό φωτισμό.
+                </p>
 
-</p>
+            </div>
 
-</div>
 
-<div class="card">
+            <div class="card">
 
-<h3>Σπειροειδής Σκάλα</h3>
+                <h3
+                    data-el="Σπειροειδής Σκάλα"
+                    data-en="Spiral Staircase"
+                >
+                    Σπειροειδής Σκάλα
+                </h3>
 
-<p>
+                <p
+                    data-el="Ένα χαρακτηριστικό αρχιτεκτονικό στοιχείο που δίνει μοναδική αισθητική."
+                    data-en="A distinctive architectural element that gives the space a unique character."
+                >
+                    Ένα χαρακτηριστικό αρχιτεκτονικό στοιχείο
+                    που δίνει μοναδική αισθητική.
+                </p>
 
-Ένα χαρακτηριστικό αρχιτεκτονικό στοιχείο
-που δίνει μοναδική αισθητική.
+            </div>
 
-</p>
 
-</div>
+            <div class="card">
 
-<div class="card">
+                <h3
+                    data-el="Ευέλικτη Χρήση"
+                    data-en="Flexible Use"
+                >
+                    Ευέλικτη Χρήση
+                </h3>
 
-<h3>Ευέλικτη Χρήση</h3>
+                <p
+                    data-el="Ιδανικός για εκθέσεις, εργαστήρια, φωτογραφίσεις και δημιουργικές συναντήσεις."
+                    data-en="Ideal for exhibitions, workshops, photo shoots and creative gatherings."
+                >
+                    Ιδανικός για εκθέσεις,
+                    εργαστήρια,
+                    φωτογραφίσεις
+                    και δημιουργικές συναντήσεις.
+                </p>
 
-<p>
+            </div>
 
-Ιδανικός για εκθέσεις,
-εργαστήρια,
-φωτογραφίσεις
-και δημιουργικές συναντήσεις.
+        </div>
 
-</p>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-
+<!-- GALLERY -->
 
 <section id="gallery">
 
-<h2>Φωτογραφίες</h2>
+    <h2
+        data-el="Φωτογραφίες"
+        data-en="Gallery"
+    >
+        Φωτογραφίες
+    </h2>
 
-<div class="gallery">
 
-<img src="images/gallery1.jpg" alt="Χώρος Κικίτσα">
-    
-<img src="images/gallery2.jpg" alt="Εσωτερικός χώρος">
+    <div class="gallery">
 
-<img src="images/gallery3.jpg" alt="Έκθεση στον χώρο">
-    
-<img src="images/gallery4.jpg" alt="Workshop">
+        <img src="images/gallery1.jpg"
+             alt="Χώρος Κικίτσα"
+             data-alt-el="Χώρος Κικίτσα"
+             data-alt-en="Kikitsa space">
 
-<img src="images/gallery5.jpg" alt="Creative Space">
-    
-</div>
+        <img src="images/gallery2.jpg"
+             alt="Εσωτερικός χώρος"
+             data-alt-el="Εσωτερικός χώρος"
+             data-alt-en="Interior space">
+
+        <img src="images/gallery3.jpg"
+             alt="Έκθεση στον χώρο"
+             data-alt-el="Έκθεση στον χώρο"
+             data-alt-en="Exhibition at Kikitsa">
+
+        <img src="images/gallery4.jpg"
+             alt="Workshop"
+             data-alt-el="Workshop"
+             data-alt-en="Workshop">
+
+        <img src="images/gallery5.jpg"
+             alt="Creative Space"
+             data-alt-el="Creative Space"
+             data-alt-en="Creative Space">
+
+    </div>
 
 </section>
 
 
+<!-- CONTACT -->
 
 <section id="contact">
 
-<div class="container">
+    <div class="container">
 
-<h2>
+        <h2
+            data-el="Σχεδιάζετε μία έκθεση ή δημιουργική εκδήλωση;"
+            data-en="Planning an exhibition or creative event?"
+        >
+            Σχεδιάζετε
+            μία έκθεση
+            ή δημιουργική εκδήλωση;
+        </h2>
 
-Σχεδιάζετε
-μία έκθεση
-ή δημιουργική εκδήλωση;
 
-</h2>
+        <p
+            data-el="Επικοινωνήστε μαζί μας για διαθεσιμότητα και περισσότερες πληροφορίες."
+            data-en="Get in touch with us for availability and more information."
+        >
+            Επικοινωνήστε μαζί μας
+            για διαθεσιμότητα
+            και περισσότερες πληροφορίες.
+        </p>
 
-<p>
 
-Επικοινωνήστε μαζί μας
-για διαθεσιμότητα
-και περισσότερες πληροφορίες.
+        <div class="contact-box">
 
-</p>
+            <p>
+                📧
+                <a href="mailto:info@kikitsa.space">
+                    info@kikitsa.space
+                </a>
+            </p>
 
-<div class="contact-box">
 
-<p>
-    📧
-    <a href="mailto:info@kikitsa.space">
-        info@kikitsa.space
-    </a>
-    
-</p>
+            <p>
+                📍Εμμανουήλ Μπενάκη 156 κ Βασίλειου Βουλγαροκτόνου 51,
+                Λόφος Στρέφη, Εξάρχεια, Αθήνα
+            </p>
 
-<p>
 
-📍Εμμανουήλ Μπενάκη 156 κ Βασίλειου Βουλγαροκτόνου 51,Λόφος Στρέφη,Εξάρχεια,Αθήνα
+            <p>
 
-</p>
+                <a href="https://www.instagram.com/kikitsaspace?igsh=MTExZTF3ZWhjZ20w"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-el="Ακολουθήστε μας στο Instagram"
+                   data-en="Follow us on Instagram">
 
-<p>
+                    Ακολουθήστε μας στο Instagram
 
-<a href="https://www.instagram.com/kikitsaspace?igsh=MTExZTF3ZWhjZ20w" target="_blank" rel="noopener noreferrer">
-    Ακολουθήστε μας στο Instagram
-</a>
-  
-</a>
+                </a>
 
-</p>
+            </p>
 
-</div>
+        </div>
 
-<a href="mailto:info@kikitsa.space" class="button">Ζητήστε Διαθεσιμότητα</a>
 
-</div>
+        <a href="mailto:info@kikitsa.space"
+           class="button"
+           data-el="Ζητήστε Διαθεσιμότητα"
+           data-en="Check Availability">
+
+            Ζητήστε Διαθεσιμότητα
+
+        </a>
+
+    </div>
 
 </section>
 
 
-
+<!-- FOOTER -->
 
 <footer>
 
-<p>
+    <p>
+        © 2026 κικίτσα
+    </p>
 
-© 2026 κικίτσα
-
-</p>
-
-<p>
-
-Creative Space • Exhibitions • Workshops • Events
-
-</p>
+    <p
+        data-el="Creative Space • Εκθέσεις • Workshops • Events"
+        data-en="Creative Space • Exhibitions • Workshops • Events"
+    >
+        Creative Space • Exhibitions • Workshops • Events
+    </p>
 
 </footer>
 
@@ -313,5 +439,4 @@ Creative Space • Exhibitions • Workshops • Events
 <script src="script.js"></script>
 
 </body>
-
 </html>
