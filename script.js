@@ -1,150 +1,89 @@
-/* ==========================
-   KIKITSA
-   script.js
-========================== */
+document.addEventListener("DOMContentLoaded", () => {
 
-// Fade-in animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-}, {
-    threshold: 0.15
-});
+    const languageButton = document.getElementById("language-switch");
 
-document
-    .querySelectorAll(".feature, .card, .gallery img")
-    .forEach((el) => observer.observe(el));
+    // Check if the visitor has already selected a language
+    let currentLanguage = localStorage.getItem("kikitsa-language") || "el";
 
+    function changeLanguage(language) {
 
-// Sticky header effect
-const header = document.querySelector("header");
+        currentLanguage = language;
 
-window.addEventListener("scroll", () => {
+        // Change HTML language
+        document.documentElement.lang = language;
 
-    if (window.scrollY > 40) {
-        header.style.padding = "15px 8%";
-        header.style.boxShadow = "0 8px 25px rgba(0,0,0,.08)";
-    } else {
-        header.style.padding = "22px 8%";
-        header.style.boxShadow = "none";
-    }
+        // Change all text elements
+        document.querySelectorAll("[data-el][data-en]").forEach(element => {
 
-});
+            element.textContent =
+                language === "en"
+                    ? element.getAttribute("data-en")
+                    : element.getAttribute("data-el");
+
+        });
 
 
-// Active navigation link
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+        // Change image ALT text
+        document.querySelectorAll("[data-alt-el][data-alt-en]").forEach(image => {
 
-window.addEventListener("scroll", () => {
+            image.alt =
+                language === "en"
+                    ? image.getAttribute("data-alt-en")
+                    : image.getAttribute("data-alt-el");
 
-    let current = "";
+        });
 
-    sections.forEach(section => {
 
-        const top = section.offsetTop - 120;
-        const height = section.clientHeight;
+        // Change page title
+        document.title =
+            language === "en"
+                ? "kikitsa | Creative Space"
+                : "κικίτσα | Creative Space";
 
-        if (window.scrollY >= top) {
-            current = section.getAttribute("id");
-        }
 
-    });
+        // Change meta description
+        const metaDescription =
+            document.getElementById("meta-description");
 
-    navLinks.forEach(link => {
+        if (metaDescription) {
 
-        link.classList.remove("active");
+            metaDescription.setAttribute(
+                "content",
+                language === "en"
+                    ? "Kikitsa is a contemporary art space for exhibitions, workshops, photo shoots, podcasts and cultural events in Athens."
+                    : "Η κικίτσα είναι ένας σύγχρονος χώρος τέχνης για εκθέσεις, εργαστήρια, φωτογραφίσεις, podcast και πολιτιστικές εκδηλώσεις στην Αθήνα."
+            );
 
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
         }
 
-    });
 
-});
+        // Change language button
+        languageButton.textContent =
+            language === "el"
+                ? "EN"
+                : "GR";
 
 
-// Gallery Lightbox
-const images = document.querySelectorAll(".gallery img");
-
-const lightbox = document.createElement("div");
-lightbox.id = "lightbox";
-
-lightbox.innerHTML = `
-    <span id="close-lightbox">&times;</span>
-    <img id="lightbox-image">
-`;
-
-document.body.appendChild(lightbox);
-
-const lightboxImage = document.getElementById("lightbox-image");
-const closeLightbox = document.getElementById("close-lightbox");
-
-images.forEach(image => {
-
-    image.addEventListener("click", () => {
-
-        lightbox.style.display = "flex";
-        lightboxImage.src = image.src;
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-});
-
-closeLightbox.addEventListener("click", () => {
-
-    lightbox.style.display = "none";
-    document.body.style.overflow = "auto";
-
-});
-
-lightbox.addEventListener("click", (e) => {
-
-    if (e.target === lightbox) {
-
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto";
+        // Save language preference
+        localStorage.setItem("kikitsa-language", language);
 
     }
 
-});
 
+    // Language switch
+    languageButton.addEventListener("click", () => {
 
-// Escape key closes lightbox
-document.addEventListener("keydown", (e) => {
+        const newLanguage =
+            currentLanguage === "el"
+                ? "en"
+                : "el";
 
-    if (e.key === "Escape") {
-
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto";
-
-    }
-
-});
-
-
-// Smooth button hover
-document.querySelectorAll(".button").forEach(button => {
-
-    button.addEventListener("mouseenter", () => {
-
-        button.style.transform = "translateY(-3px)";
+        changeLanguage(newLanguage);
 
     });
 
-    button.addEventListener("mouseleave", () => {
 
-        button.style.transform = "translateY(0)";
-
-    });
+    // Load saved/default language
+    changeLanguage(currentLanguage);
 
 });
-
-
-// Welcome message
-console.log(" website loaded successfully.");
