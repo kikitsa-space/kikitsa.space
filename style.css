@@ -354,3 +354,20 @@ nav a.active{
     cursor:pointer;
     font-family:Arial,sans-serif;
 }
+/* Hero text - white */
+.hero h1,
+.hero h2,
+.hero p {
+    color: #fff;
+}
+
+/* Hero button */
+.hero .button {
+    color: #fff;
+    border-color: #fff;
+}
+
+.hero .button:hover {
+    background: #fff;
+    color: #000;
+}
